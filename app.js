@@ -5,6 +5,8 @@ const app = express();
 
 app.set("port", process.env.PORT || 3000); // .env 에 PORT 값 없으면 3000 사용
 
+app.use(express.static(path.join(__dirname, "/build")));
+
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "/index.html")); // 상대경로 안됨.
 });
